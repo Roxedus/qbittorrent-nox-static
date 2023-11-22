@@ -1,0 +1,12 @@
+diff --git a/src/app/application.cpp b/src/app/application.cpp
+index e22f2f670..38df74aac 100644
+--- a/src/app/application.cpp
++++ b/src/app/application.cpp
+@@ -924,6 +924,7 @@ int Application::exec()
+                     + tr("The WebUI administrator password was not set. A temporary password is provided for this session: %1").arg(tempPassword) + u'\n'
+                     + tr("You should set your own password in program preferences.") + u'\n';
+             printf("%s", qUtf8Printable(warning));
++            fflush(stdout); // Necessary for environments (e.g. docker) where stdout is buffered
+         }
+ #endif // DISABLE_GUI
+ #endif // DISABLE_WEBUI
